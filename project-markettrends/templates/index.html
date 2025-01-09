@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Trends Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+</head>
+<body>
+    <h1>Select Filters for Car Data</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div>{{ form.start_year.label }} {{ form.start_year() }}</div>
+        <div>{{ form.end_year.label }} {{ form.end_year() }}</div>
+        <div>{{ form.brands.label }} {{ form.brands(size=5, multiple=True, id='brands-select') }}</div>
+        <div>{{ form.fuel_types.label }} {{ form.fuel_types(size=5, multiple=True, id='fuel-types-select') }}</div>
+        <div>{{ form.visualization.label }} {{ form.visualization() }}</div>
+        <div>{{ form.submit() }}</div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script>
+        new Choices('#brands-select', { removeItemButton: true });
+        new Choices('#fuel-types-select', { removeItemButton: true });
+    </script>
+</body>
+</html>
